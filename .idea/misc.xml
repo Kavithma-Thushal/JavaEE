@@ -8,6 +8,7 @@
         <option value="$PROJECT_DIR$/Servlets/pom.xml" />
         <option value="$PROJECT_DIR$/Lifecycle/pom.xml" />
         <option value="$PROJECT_DIR$/DBAccess/pom.xml" />
+        <option value="$PROJECT_DIR$/Mapping/pom.xml" />
       </list>
     </option>
     <option name="workspaceImportForciblyTurnedOn" value="true" />
