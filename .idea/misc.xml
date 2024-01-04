@@ -6,6 +6,7 @@
       <list>
         <option value="$PROJECT_DIR$/HelloServlet/pom.xml" />
         <option value="$PROJECT_DIR$/Servlets/pom.xml" />
+        <option value="$PROJECT_DIR$/Lifecycle/pom.xml" />
       </list>
     </option>
     <option name="workspaceImportForciblyTurnedOn" value="true" />

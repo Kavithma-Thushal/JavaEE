@@ -8,6 +8,7 @@
         <outputRelativeToContentRoot value="true" />
         <module name="HelloServlet" />
         <module name="Servlets" />
+        <module name="Lifecycle" />
       </profile>
     </annotationProcessing>
   </component>
