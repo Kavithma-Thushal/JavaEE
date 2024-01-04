@@ -5,12 +5,16 @@
          version="4.0">
 
     <servlet>
-        <servlet-name>MyServlet1</servlet-name>
+        <servlet-name>MyServlet</servlet-name>
         <servlet-class>lk.ijse.gdse66.MyServlet</servlet-class>
+        <init-param>
+            <param-name>name</param-name>
+            <param-value>Kamal</param-value>
+        </init-param>
     </servlet>
 
     <servlet-mapping>
-        <servlet-name>MyServlet1</servlet-name>
+        <servlet-name>MyServlet</servlet-name>
         <url-pattern>/test</url-pattern>
     </servlet-mapping>
 
@@ -19,11 +23,22 @@
     <servlet>
         <servlet-name>MyServlet2</servlet-name>
         <servlet-class>lk.ijse.gdse66.MyServlet2</servlet-class>
+        <init-param>
+            <param-name>name</param-name>
+            <param-value>Nimal</param-value>
+        </init-param>
     </servlet>
 
     <servlet-mapping>
         <servlet-name>MyServlet2</servlet-name>
         <url-pattern>/test2</url-pattern>
     </servlet-mapping>
+
+    <!--///////////////////////////////////////////////////////////////-->
+
+    <context-param>
+        <param-name>city</param-name>
+        <param-value>Galle</param-value>
+    </context-param>
 
 </web-app>
