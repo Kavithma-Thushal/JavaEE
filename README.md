@@ -1,8 +1,4 @@
-<div align="center">
-
 # JakartaEE (Formly known as JavaEE / J2EE)
-
-</div>
 
 Welcome to the JakartaEE Modules Repository! This collection represents an exploration of the powerful JakartaEE (
 formerly known as JavaEE / J2EE) platform. Jakarta EE is an enterprise-level framework for building scalable and robust
@@ -10,7 +6,7 @@ Java-based applications.
 
 The repository contains a set of modules, each dedicated to a specific aspect of enterprise development. Whether you're
 delving into web applications, persistence, messaging, or other Jakarta EE technologies, this collection is designed to
-provide you with insights, examples, and best practices.
+provide you with insights, examples, and best practices.<br/><br/>
 
 ### Getting Started
 
