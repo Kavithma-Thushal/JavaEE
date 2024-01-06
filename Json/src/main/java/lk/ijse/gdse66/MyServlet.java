@@ -26,23 +26,23 @@ public class MyServlet extends HttpServlet {
         /*-------------------- JSON Read --------------------*/
 
         /*Without Json Library*/
-        BufferedReader reader = req.getReader();
+        BufferedReader reader1 = req.getReader();
         String line;
-        while ((line = reader.readLine()) != null) {
+        while ((line = reader1.readLine()) != null) {
             System.out.println(line);
         }
 
         /*Using JsonP Library*/
-        JsonReader reader1 = Json.createReader(req.getReader());
-        JsonObject jsonObject = reader1.readObject();
+        JsonReader reader = Json.createReader(req.getReader());
+        JsonObject jsonObject = reader.readObject();
         System.out.println(jsonObject);
 
         /*-------------------- JSON Write --------------------*/
         JsonObjectBuilder objectBuilder = Json.createObjectBuilder();
         objectBuilder.add("id", "C001");
-        objectBuilder.add("name", "Kamal");
-        objectBuilder.add("address", "Panadura");
-        JsonObject jsonObject2 = objectBuilder.build();
-        resp.getWriter().write(jsonObject2.toString());
+        objectBuilder.add("name", "Thushal");
+        objectBuilder.add("address", "Galle");
+        JsonObject customerObject = objectBuilder.build();
+        resp.getWriter().println(customerObject.toString());
     }
 }
