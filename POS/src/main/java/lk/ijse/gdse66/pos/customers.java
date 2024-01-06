@@ -95,7 +95,7 @@ public class customers extends HttpServlet {
 
             JsonArray customerArray = arrayBuilder.build();
             resp.getWriter().println(customerArray.toString());
-            //resp.setContentType("application/json");
+            resp.setContentType("application/json");
 
         } catch (ClassNotFoundException | SQLException e) {
             throw new RuntimeException(e);
