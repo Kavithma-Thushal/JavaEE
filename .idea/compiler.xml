@@ -6,12 +6,13 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="DBAccess" />
+        <module name="POS" />
+        <module name="Lifecycle" />
         <module name="HelloServlet" />
         <module name="Mapping" />
         <module name="Json" />
-        <module name="DBAccess" />
         <module name="Servlets" />
-        <module name="Lifecycle" />
       </profile>
     </annotationProcessing>
   </component>

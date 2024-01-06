@@ -10,6 +10,7 @@
         <option value="$PROJECT_DIR$/DBAccess/pom.xml" />
         <option value="$PROJECT_DIR$/Mapping/pom.xml" />
         <option value="$PROJECT_DIR$/Json/pom.xml" />
+        <option value="$PROJECT_DIR$/POS/pom.xml" />
       </list>
     </option>
     <option name="workspaceImportForciblyTurnedOn" value="true" />
