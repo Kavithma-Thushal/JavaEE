@@ -22,6 +22,6 @@ Happy coding!
 
 #### This project is licensed under the [MIT License](LICENSE)
 
-#### © 2023 All Right Reserved, Designed By [Kavithma Thushal](https://github.com/Thushal2001)
+#### © 2024 All Right Reserved, Designed By [Kavithma Thushal](https://github.com/Thushal2001)
 
 </div>
