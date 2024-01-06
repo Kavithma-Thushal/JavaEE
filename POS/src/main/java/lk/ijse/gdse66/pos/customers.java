@@ -18,11 +18,23 @@ public class customers extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         resp.getWriter().println("doGet()");
         System.out.println("doGet()");
+
+        String id = req.getParameter("id");
+        String name = req.getParameter("name");
+        String address = req.getParameter("address");
+        System.out.println(id + " - " + address + " - " + name);
+        resp.getWriter().println(id + " - " + address + " - " + name);
     }
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         resp.getWriter().println("doPost()");
         System.out.println("doPost()");
+
+        String id = req.getParameter("id");
+        String name = req.getParameter("name");
+        String address = req.getParameter("address");
+        System.out.println(id + " - " + name + " - " + address);
+        resp.getWriter().println(id + " - " + name + " - " + address);
     }
 }
