@@ -20,15 +20,16 @@ public class customers extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        /*String id = req.getParameter("id");
+        String id = req.getParameter("id");
         String name = req.getParameter("name");
-        String address = req.getParameter("address");*/
+        String address = req.getParameter("address");
 
-        JsonReader reader = Json.createReader(req.getReader());
+        /*Using JSON Object*/
+        /*JsonReader reader = Json.createReader(req.getReader());
         JsonObject jsonObject = reader.readObject();
         String id = jsonObject.getString("id");
         String name = jsonObject.getString("name");
-        String address = jsonObject.getString("address");
+        String address = jsonObject.getString("address");*/
 
         System.out.println("doPost()");
         System.out.println(id + " - " + name + " - " + address);
