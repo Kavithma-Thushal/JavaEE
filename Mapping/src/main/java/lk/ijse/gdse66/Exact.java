@@ -28,6 +28,7 @@ public class Exact extends HttpServlet {
         System.out.println("Query String    : " + req.getQueryString());
         System.out.println("Request URI     : " + req.getRequestURI());
         System.out.println("Request URL     : " + req.getRequestURL());
+
         System.out.println("protocol        : " + req.getProtocol());
         System.out.println("Scheme          : " + req.getScheme());
         System.out.println("Remote Address  : " + req.getRemoteAddr());
