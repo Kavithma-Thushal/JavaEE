@@ -24,7 +24,6 @@ public class MyServlet extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
         /*-------------------- JSON Read --------------------*/
-
         /*Without Json Library*/
         BufferedReader reader1 = req.getReader();
         String line;
@@ -32,12 +31,13 @@ public class MyServlet extends HttpServlet {
             System.out.println(line);
         }
 
-        /*Using JsonP Library*/
+        /*Using JSON-P Library*/
         JsonReader reader = Json.createReader(req.getReader());
         JsonObject jsonObject = reader.readObject();
         System.out.println(jsonObject);
 
         /*-------------------- JSON Write --------------------*/
+        /*Using JSON-P Library*/
         JsonObjectBuilder objectBuilder = Json.createObjectBuilder();
         objectBuilder.add("id", "C001");
         objectBuilder.add("name", "Thushal");
