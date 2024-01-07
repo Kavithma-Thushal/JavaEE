@@ -89,13 +89,13 @@ public class customers extends HttpServlet {
                 objectBuilder.add("id", id);
                 objectBuilder.add("name", name);
                 objectBuilder.add("address", address);
-                JsonObject customerObject = objectBuilder.build();
-                arrayBuilder.add(customerObject);
+                JsonObject customerObject = objectBuilder.build();      // Create JSON objects for each customer
+                arrayBuilder.add(customerObject);                       // Add each customer into JSON array
             }
 
             JsonArray customerArray = arrayBuilder.build();
-            resp.getWriter().println(customerArray.toString());
-            resp.setContentType("application/json");
+            resp.getWriter().println(customerArray.toString());         // Write JSON array in response
+            resp.setContentType("application/json");        // Set the MIME type of the content of the response (Thus, add response header called "Content-Type")
 
         } catch (ClassNotFoundException | SQLException e) {
             throw new RuntimeException(e);
