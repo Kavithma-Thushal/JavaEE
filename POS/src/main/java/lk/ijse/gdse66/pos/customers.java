@@ -55,32 +55,28 @@ public class customers extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        /*String id = req.getParameter("id");
-        String name = req.getParameter("name");
-        String address = req.getParameter("address");
-
         System.out.println("doGet()");
-        System.out.println(id + " - " + address + " - " + name);
-
         resp.getWriter().println("doGet()");
-        resp.getWriter().println(id + " - " + address + " - " + name);*/
 
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
             Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/servlet_db", "root", "1234");
 
-            /*String sql = "INSERT INTO customer(id, name, address) VALUES (?,?,?)";
-            PreparedStatement preparedStatement = connection.prepareStatement(sql);
-            preparedStatement.setString(1, id);
-            preparedStatement.setString(2, name);
-            preparedStatement.setString(3, address);
-            preparedStatement.executeUpdate();*/
-
-            JsonArrayBuilder arrayBuilder = Json.createArrayBuilder();
             String sql = "SELECT * FROM customer";
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
             ResultSet resultSet = preparedStatement.executeQuery();
 
+            while (resultSet.next()) {
+                String id = resultSet.getString("id");
+                String name = resultSet.getString("name");
+                String address = resultSet.getString("address");
+
+                System.out.println(id + " - " + name + " - " + address);
+                resp.getWriter().println(id + " - " + name + " - " + address);
+            }
+
+            /*Using JSON Object*/
+            /*JsonArrayBuilder arrayBuilder = Json.createArrayBuilder();
             while (resultSet.next()) {
                 String id = resultSet.getString("id");
                 String name = resultSet.getString("name");
@@ -96,7 +92,7 @@ public class customers extends HttpServlet {
 
             JsonArray customerArray = arrayBuilder.build();
             resp.getWriter().println(customerArray.toString());         // Write JSON array in response
-            resp.setContentType("application/json");        // Set the MIME type of the content of the response (Thus, add response header called "Content-Type")
+            resp.setContentType("application/json");        // Set the MIME type of the content of the response (Thus, add response header called "Content-Type")*/
 
         } catch (ClassNotFoundException | SQLException e) {
             throw new RuntimeException(e);
