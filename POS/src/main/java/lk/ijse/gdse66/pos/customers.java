@@ -2,7 +2,9 @@ package lk.ijse.gdse66.pos;
 
 import jakarta.json.*;
 
+import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebInitParam;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -15,8 +17,24 @@ import java.sql.*;
  * @project : JavaEE
  * @since : 7:38 AM - 1/6/2024
  **/
-@WebServlet("/customers")
+@WebServlet(urlPatterns = "/customers", loadOnStartup = 1, initParams = {
+        @WebInitParam(name = "username", value = "root"),
+        @WebInitParam(name = "password", value = "1234"),
+        @WebInitParam(name = "url", value = "jdbc:mysql://localhost:3306/servlet_db")
+})
 public class customers extends HttpServlet {
+    private String username;
+    private String password;
+    private String url;
+
+    @Override
+    public void init() throws ServletException {
+        /*ServletConfig is used to get configuration information such as database username, password and url*/
+        ServletConfig servletConfig = getServletConfig();
+        username = servletConfig.getInitParameter("username");
+        password = servletConfig.getInitParameter("password");
+        url = servletConfig.getInitParameter("url");
+    }
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -39,7 +57,7 @@ public class customers extends HttpServlet {
 
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
-            Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/servlet_db", "root", "1234");
+            Connection connection = DriverManager.getConnection(url, username, password);
 
             String sql = "INSERT INTO customer(id, name, address) VALUES (?,?,?)";
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
@@ -60,7 +78,7 @@ public class customers extends HttpServlet {
 
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
-            Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/servlet_db", "root", "1234");
+            Connection connection = DriverManager.getConnection(url, username, password);
 
             String sql = "SELECT * FROM customer";
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
