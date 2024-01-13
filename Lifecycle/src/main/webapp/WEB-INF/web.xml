@@ -6,7 +6,7 @@
 
     <servlet>
         <servlet-name>MyServlet</servlet-name>
-        <servlet-class>lk.ijse.gdse66.MyServlet</servlet-class>
+        <servlet-class>lk.ijse.gdse66.JSON_P</servlet-class>
         <load-on-startup>1</load-on-startup>
     </servlet>
 
