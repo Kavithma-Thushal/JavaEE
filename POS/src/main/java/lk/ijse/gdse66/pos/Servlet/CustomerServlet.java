@@ -1,5 +1,6 @@
 package lk.ijse.gdse66.pos.Servlet;
 
+import jakarta.json.*;
 import jakarta.json.bind.Jsonb;
 import jakarta.json.bind.JsonbBuilder;
 import lk.ijse.gdse66.pos.DTO.CustomerDTO;
@@ -13,6 +14,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.sql.*;
+import java.util.ArrayList;
 
 /**
  * @author : Kavithma Thushal
@@ -131,8 +133,26 @@ public class CustomerServlet extends HttpServlet {
             }
 
             JsonArray customerArray = arrayBuilder.build();
-            resp.getWriter().println(customerArray.toString());         // Write JSON array in response
+            resp.getWriter().println(customerArray.toString());
+            System.out.println(customerArray);
             resp.setContentType("application/json");                    // Set the MIME type of the content of the response*/
+
+            /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+            /*Using JSON-B*/
+            /*ArrayList<CustomerDTO> customerList = new ArrayList<>();
+            while (resultSet.next()) {
+                String id = resultSet.getString("id");
+                String name = resultSet.getString("name");
+                String address = resultSet.getString("address");
+
+                customerList.add(new CustomerDTO(id, name, address));
+            }
+
+            Jsonb jsonb = JsonbBuilder.create();
+            resp.setContentType("application/json");                    // Set the MIME type of the content of the response
+            jsonb.toJson(customerList, resp.getWriter());               // Java Object ---> JSON Object
+            jsonb.toJson(customerList, System.out);*/
 
         } catch (ClassNotFoundException | SQLException e) {
             throw new RuntimeException(e);
