@@ -15,11 +15,7 @@ import java.sql.*;
  * @project : JavaEE
  * @since : 7:38 AM - 1/6/2024
  **/
-@WebServlet(urlPatterns = "/customers", loadOnStartup = 1, initParams = {
-        @WebInitParam(name = "username", value = "root"),
-        @WebInitParam(name = "password", value = "1234"),
-        @WebInitParam(name = "url", value = "jdbc:mysql://localhost:3306/servlet_db")
-})
+@WebServlet(urlPatterns = "/customers", loadOnStartup = 1, initParams = {@WebInitParam(name = "username", value = "root"), @WebInitParam(name = "password", value = "1234"), @WebInitParam(name = "url", value = "jdbc:mysql://localhost:3306/servlet_db")})
 public class CustomerServlet extends HttpServlet {
     private String username;
     private String password;
@@ -57,6 +53,13 @@ public class CustomerServlet extends HttpServlet {
         String name = customerDTO.getName();
         String address = customerDTO.getAddress();*/
 
+        /*Validations*/
+        if (id == null || !id.matches("C\\d{3}")) {
+            resp.sendError(HttpServletResponse.SC_BAD_REQUEST, "Customer Not Added!");
+            resp.getWriter().println("ID is Invalid!");
+            return;
+        }
+
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
             connection = DriverManager.getConnection(url, username, password);
@@ -69,9 +72,12 @@ public class CustomerServlet extends HttpServlet {
             int rowsEffected = preparedStatement.executeUpdate();
 
             if (rowsEffected != 0) {
+                //resp.setStatus(204);
+                //resp.setStatus(HttpServletResponse.SC_NO_CONTENT);
                 resp.getWriter().println("Customer Saved Successfully!");
                 System.out.println("Customer Saved Successfully!");
             } else {
+                resp.sendError(HttpServletResponse.SC_BAD_REQUEST, "Customer Not Added!");
                 resp.getWriter().println("Customer Saved Error!");
                 System.out.println("Customer Saved Error!");
             }
