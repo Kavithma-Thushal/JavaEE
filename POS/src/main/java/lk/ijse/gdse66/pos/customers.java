@@ -152,4 +152,28 @@ public class customers extends HttpServlet {
         }
     }
 
+    @Override
+    protected void doDelete(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        String id = req.getParameter("id");
+
+        System.out.println("doDelete()");
+        System.out.println(id + " - Deleted Successfully!");
+
+        resp.getWriter().println("doDelete()");
+        resp.getWriter().println(id + " - Deleted Successfully!");
+
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            Connection connection = DriverManager.getConnection(url, username, password);
+
+            String sql = "DELETE FROM customer WHERE id=?";
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setString(1, id);
+            preparedStatement.executeUpdate();
+
+        } catch (ClassNotFoundException | SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
 }
