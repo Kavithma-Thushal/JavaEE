@@ -1,9 +1,4 @@
-package lk.ijse.gdse66.pos.Servlet;
-
-import jakarta.json.*;
-import jakarta.json.bind.Jsonb;
-import jakarta.json.bind.JsonbBuilder;
-import lk.ijse.gdse66.pos.DTO.CustomerDTO;
+package lk.ijse.gdse66.pos.API;
 
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
@@ -14,7 +9,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.sql.*;
-import java.util.ArrayList;
 
 /**
  * @author : Kavithma Thushal

@@ -23,10 +23,25 @@
             <scope>provided</scope>
         </dependency>
 
+        <!--JSON-P-->
         <dependency>
             <groupId>org.eclipse.parsson</groupId>
             <artifactId>parsson</artifactId>
             <version>1.1.5</version>
+        </dependency>
+
+        <!--JSON-B-->
+        <dependency>
+            <groupId>org.eclipse</groupId>
+            <artifactId>yasson</artifactId>
+            <version>3.0.3</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>RELEASE</version>
+            <scope>provided</scope>
         </dependency>
     </dependencies>
 
