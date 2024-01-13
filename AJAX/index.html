@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0">
+    <title>AJAX</title>
+</head>
+
+<body>
+<h1>Hello AJAX</h1>
+
+<button id="btn" type="button">Send Ajax Request</button>
+<button id="btn2" type="button">Send Ajax Request with JQuery</button>
+
+<div id="div"></div>
+<div id="div2"></div>
+
+<script src="jquery-3.7.1.js"></script>
+<script>
+    $('#btn').click(function () {
+        /*create the request*/
+        let xhr = new XMLHttpRequest();
+        console.log(xhr.readyState, "Creating the XMLHttpRequest");
+
+        /*open the request*/
+        xhr.open("get", "customer.json");
+        console.log(xhr.readyState, "After Opening the Request");
+
+        /*set the listener to listen*/
+        xhr.addEventListener("readystatechange", () => {
+            if (xhr.readyState === 4 && xhr.status === 200) {
+                console.log(xhr.responseText);
+
+                let divElm = $('#div');
+                divElm.text(xhr.responseText);
+                $('body').append(divElm);
+            }
+            console.log("Ready is changed!");
+        });
+
+        /*send the request*/
+        xhr.send();
+        console.log(xhr.readyState, "After Sending the Request");
+    });
+
+    $('#btn2').click(function () {
+        $.ajax({
+            url: "customer.json",
+            method: "get",
+            //assign:true
+            success: function (resp) {
+                console.log("success : " + resp);
+                console.log("id      : " + resp.id);
+                console.log("name    : " + resp.name);
+                console.log("address : " + resp.address);
+
+                let divElm = $('#div2');
+                divElm.text("id : " + resp.id + " name : " + resp.name + " address : " + resp.address);
+                $('body').append(divElm);
+            },
+            error: function (error) {
+                console.log("Error : " + error)
+            }
+        });
+    });
+</script>
+</body>
+</html>

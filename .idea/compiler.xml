@@ -16,5 +16,8 @@
         <module name="Servlets" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="AJAX" target="11" />
+    </bytecodeTargetLevel>
   </component>
 </project>
