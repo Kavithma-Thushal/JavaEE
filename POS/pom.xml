@@ -35,24 +35,24 @@
             <version>2.1.3</version>
         </dependency>
 
-        <!--jsonp-->
+        <!--JSON-P-->
         <dependency>
             <groupId>org.eclipse.parsson</groupId>
             <artifactId>parsson</artifactId>
             <version>1.1.5</version>
         </dependency>
 
-        <!--jsonb-->
-        <dependency>
-            <groupId>org.eclipse</groupId>
-            <artifactId>yasson</artifactId>
-            <version>3.0.3</version>
-        </dependency>
-
         <dependency>
             <groupId>jakarta.json.bind</groupId>
             <artifactId>jakarta.json.bind-api</artifactId>
             <version>3.0.0</version>
+        </dependency>
+
+        <!--JSON-B-->
+        <dependency>
+            <groupId>org.eclipse</groupId>
+            <artifactId>yasson</artifactId>
+            <version>3.0.3</version>
         </dependency>
 
         <dependency>

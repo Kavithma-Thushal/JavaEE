@@ -1,6 +1,8 @@
-package lk.ijse.gdse66.pos;
+package lk.ijse.gdse66.pos.Servlet;
 
-import jakarta.json.*;
+import jakarta.json.bind.Jsonb;
+import jakarta.json.bind.JsonbBuilder;
+import lk.ijse.gdse66.pos.DTO.CustomerDTO;
 
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
@@ -22,7 +24,7 @@ import java.sql.*;
         @WebInitParam(name = "password", value = "1234"),
         @WebInitParam(name = "url", value = "jdbc:mysql://localhost:3306/servlet_db")
 })
-public class customers extends HttpServlet {
+public class CustomerServlet extends HttpServlet {
     private String username;
     private String password;
     private String url;
@@ -48,6 +50,13 @@ public class customers extends HttpServlet {
         String id = jsonObject.getString("id");
         String name = jsonObject.getString("name");
         String address = jsonObject.getString("address");*/
+
+        /*Using Json-B Object*/
+        /*Jsonb jsonb = JsonbBuilder.create();
+        CustomerDTO customerDTO = jsonb.fromJson(req.getReader(), CustomerDTO.class);   // JSON Object ---> Java Object
+        String id = customerDTO.getId();
+        String name = customerDTO.getName();
+        String address = customerDTO.getAddress();*/
 
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
