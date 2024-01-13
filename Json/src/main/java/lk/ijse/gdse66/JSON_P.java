@@ -32,7 +32,7 @@ public class JSON_P extends HttpServlet {
         JsonObject jsonpObject = jsonpReader.readObject();
         System.out.println(jsonpObject);
 
-        /*Using JSON-B Library*/
+        /*Using JSON-P Library Extended*/
         JsonReader jsonbReader = Json.createReader(req.getReader());
         JsonObject jsonbObject = jsonbReader.readObject();
 
@@ -77,7 +77,7 @@ public class JSON_P extends HttpServlet {
         JsonObject customerObject = jsonpObjectBuilder.build();
         resp.getWriter().println(customerObject.toString());
 
-        /*Using JSON-B Library*/
+        /*Using JSON-P Library Extended*/
         JsonObjectBuilder jsonbObjectBuilder = Json.createObjectBuilder();
         jsonbObjectBuilder.add("id", "C001");
         jsonbObjectBuilder.add("name", "Thushal");
