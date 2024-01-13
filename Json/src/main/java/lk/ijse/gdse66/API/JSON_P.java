@@ -20,19 +20,19 @@ public class JSON_P extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-        /*Without Json Library*/
+        /**Without Json Library*/
         BufferedReader reader = req.getReader();
         String line;
         while ((line = reader.readLine()) != null) {
             System.out.println(line);
         }
 
-        /*Using JSON-P Library*/
+        /**Using JSON-P Library*/
         JsonReader jsonpReader = Json.createReader(req.getReader());
         JsonObject jsonpObject = jsonpReader.readObject();
         System.out.println(jsonpObject);
 
-        /*Using JSON-P Library Extended*/
+        /**Using JSON-P Library Advanced*/
         JsonReader jsonbReader = Json.createReader(req.getReader());
         JsonObject jsonbObject = jsonbReader.readObject();
 
@@ -62,14 +62,14 @@ public class JSON_P extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-        /*Without Json Library*/
+        /**Without Json Library*/
         resp.getWriter().write("{" +
                 "\"id\":\"C001\"," +
                 "\"name\":\"Nimal\"," +
                 "\"address\":\"Jaffna\"," +
                 "}");
 
-        /*Using JSON-P Library*/
+        /**Using JSON-P Library*/
         JsonObjectBuilder jsonpObjectBuilder = Json.createObjectBuilder();
         jsonpObjectBuilder.add("id", "C001");
         jsonpObjectBuilder.add("name", "Thushal");
@@ -77,7 +77,7 @@ public class JSON_P extends HttpServlet {
         JsonObject customerObject = jsonpObjectBuilder.build();
         resp.getWriter().println(customerObject.toString());
 
-        /*Using JSON-P Library Extended*/
+        /**Using JSON-P Library Advanced*/
         JsonObjectBuilder jsonbObjectBuilder = Json.createObjectBuilder();
         jsonbObjectBuilder.add("id", "C001");
         jsonbObjectBuilder.add("name", "Thushal");
