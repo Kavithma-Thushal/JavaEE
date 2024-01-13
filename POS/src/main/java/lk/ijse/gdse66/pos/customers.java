@@ -42,7 +42,7 @@ public class customers extends HttpServlet {
         String name = req.getParameter("name");
         String address = req.getParameter("address");
 
-        /*Using JSON Object*/
+        /*Using JSON-P Object*/
         /*JsonReader reader = Json.createReader(req.getReader());
         JsonObject jsonObject = reader.readObject();
         String id = jsonObject.getString("id");
@@ -93,7 +93,7 @@ public class customers extends HttpServlet {
                 resp.getWriter().println(id + " - " + name + " - " + address);
             }
 
-            /*Using JSON Object*/
+            /*Using JSON-P Object*/
             /*JsonArrayBuilder arrayBuilder = Json.createArrayBuilder();
             while (resultSet.next()) {
                 String id = resultSet.getString("id");
@@ -123,7 +123,7 @@ public class customers extends HttpServlet {
         String name = req.getParameter("name");
         String address = req.getParameter("address");
 
-        /*Using JSON Object*/
+        /*Using JSON-P Object*/
         /*JsonReader reader = Json.createReader(req.getReader());
         JsonObject jsonObject = reader.readObject();
         String id = jsonObject.getString("id");
