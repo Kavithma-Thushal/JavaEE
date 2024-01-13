@@ -49,12 +49,6 @@ public class customers extends HttpServlet {
         String name = jsonObject.getString("name");
         String address = jsonObject.getString("address");*/
 
-        System.out.println("doPost()");
-        System.out.println(id + " - " + name + " - " + address);
-
-        resp.getWriter().println("doPost()");
-        resp.getWriter().println(id + " - " + name + " - " + address);
-
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
             Connection connection = DriverManager.getConnection(url, username, password);
@@ -64,7 +58,15 @@ public class customers extends HttpServlet {
             preparedStatement.setString(1, id);
             preparedStatement.setString(2, name);
             preparedStatement.setString(3, address);
-            preparedStatement.executeUpdate();
+            int rowsEffected = preparedStatement.executeUpdate();
+
+            if (rowsEffected != 0) {
+                resp.getWriter().println("Customer Saved Successfully!");
+                System.out.println("Customer Saved Successfully!");
+            } else {
+                resp.getWriter().println("Customer Saved Error!");
+                System.out.println("Customer Saved Error!");
+            }
 
         } catch (ClassNotFoundException | SQLException e) {
             throw new RuntimeException(e);
@@ -73,8 +75,6 @@ public class customers extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        System.out.println("doGet()");
-        resp.getWriter().println("doGet()");
 
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
@@ -93,7 +93,7 @@ public class customers extends HttpServlet {
                 resp.getWriter().println(id + " - " + name + " - " + address);
             }
 
-            /*Using JSON-P Object*/
+            /*Using JSON-P*/
             /*JsonArrayBuilder arrayBuilder = Json.createArrayBuilder();
             while (resultSet.next()) {
                 String id = resultSet.getString("id");
@@ -130,12 +130,6 @@ public class customers extends HttpServlet {
         String name = jsonObject.getString("name");
         String address = jsonObject.getString("address");*/
 
-        System.out.println("doPut()");
-        System.out.println(id + " - " + name + " - " + address);
-
-        resp.getWriter().println("doPut()");
-        resp.getWriter().println(id + " - " + name + " - " + address);
-
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
             Connection connection = DriverManager.getConnection(url, username, password);
@@ -145,7 +139,15 @@ public class customers extends HttpServlet {
             preparedStatement.setString(1, name);
             preparedStatement.setString(2, address);
             preparedStatement.setString(3, id);
-            preparedStatement.executeUpdate();
+            int rowsEffected = preparedStatement.executeUpdate();
+
+            if (rowsEffected != 0) {
+                resp.getWriter().println("Customer Updated Successfully!");
+                System.out.println("Customer Updated Successfully!");
+            } else {
+                resp.getWriter().println("Customer Updated Error!");
+                System.out.println("Customer Updated Error!");
+            }
 
         } catch (ClassNotFoundException | SQLException e) {
             throw new RuntimeException(e);
@@ -156,12 +158,6 @@ public class customers extends HttpServlet {
     protected void doDelete(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String id = req.getParameter("id");
 
-        System.out.println("doDelete()");
-        System.out.println(id + " - Deleted Successfully!");
-
-        resp.getWriter().println("doDelete()");
-        resp.getWriter().println(id + " - Deleted Successfully!");
-
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
             Connection connection = DriverManager.getConnection(url, username, password);
@@ -169,7 +165,15 @@ public class customers extends HttpServlet {
             String sql = "DELETE FROM customer WHERE id=?";
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
             preparedStatement.setString(1, id);
-            preparedStatement.executeUpdate();
+            int rowsEffected = preparedStatement.executeUpdate();
+
+            if (rowsEffected != 0) {
+                resp.getWriter().println("Customer Deleted Successfully!");
+                System.out.println("Customer Deleted Successfully!");
+            } else {
+                resp.getWriter().println("Customer Deleted Error!");
+                System.out.println("Customer Deleted Error!");
+            }
 
         } catch (ClassNotFoundException | SQLException e) {
             throw new RuntimeException(e);
