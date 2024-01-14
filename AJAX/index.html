@@ -8,8 +8,9 @@
 
 <body>
 <h1>Hello AJAX</h1>
+<p>Let's implement AJAX with XMLHttpRequest object</p>
 
-<button id="btn" type="button">Send Ajax Request</button>
+<button id="btn1" type="button">Send Ajax Request</button>
 <button id="btn2" type="button">Send Ajax Request with JQuery</button>
 
 <div id="div"></div>
@@ -17,51 +18,56 @@
 
 <script src="jquery-3.7.1.js"></script>
 <script>
-    $('#btn').click(function () {
-        /*create the request*/
+    $('#btn1').click(function () {
+        /*create XMLHttpRequest Object*/
         let xhr = new XMLHttpRequest();
-        console.log(xhr.readyState, "Creating the XMLHttpRequest");
+        console.log(xhr.readyState, "After creating XMLHttpRequest object");
 
         /*open the request*/
         xhr.open("get", "customer.json");
-        console.log(xhr.readyState, "After Opening the Request");
+        console.log(xhr.readyState, "After opening the request");
 
-        /*set the listener to listen*/
+        /*set the event listener to listen readystatechange*/
         xhr.addEventListener("readystatechange", () => {
             if (xhr.readyState === 4 && xhr.status === 200) {
                 console.log(xhr.responseText);
 
-                let divElm = $('#div');
+                let divElm = $('<div>');
                 divElm.text(xhr.responseText);
                 $('body').append(divElm);
             }
-            console.log("Ready is changed!");
+            console.log(xhr.readyState, "Readystate is changed");
         });
 
         /*send the request*/
         xhr.send();
-        console.log(xhr.readyState, "After Sending the Request");
+        console.log(xhr.readyState, "After sending the request");
     });
 
+
     $('#btn2').click(function () {
+        console.log("Start");
+
         $.ajax({
             url: "customer.json",
             method: "get",
-            //assign:true
+            /*async: false,*/
             success: function (resp) {
-                console.log("success : " + resp);
-                console.log("id      : " + resp.id);
-                console.log("name    : " + resp.name);
-                console.log("address : " + resp.address);
+                console.log("Success : ", resp)
+                console.log("id      : ", resp.id);
+                console.log("name    : ", resp.name);
+                console.log("address : ", resp.address);
 
-                let divElm = $('#div2');
-                divElm.text("id : " + resp.id + " name : " + resp.name + " address : " + resp.address);
+                let divElm = $('<div>');
+                divElm.text("{ \"id\": \"" + resp.id + "\", \"name\": \"" + resp.name + "\", \"address\": \"" + resp.address + "\" }");
                 $('body').append(divElm);
             },
             error: function (error) {
-                console.log("Error : " + error)
+                console.log("Error : ", error);
             }
         });
+
+        console.log("End");
     });
 </script>
 </body>
