@@ -99,6 +99,15 @@ public class CustomerServlet extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         Connection connection = null;
 
+        /*String action = req.getParameter("action");
+        if (action == null) {
+            resp.sendError(HttpServletResponse.SC_BAD_REQUEST, "Action is Empty!");
+        } else if (action.equalsIgnoreCase("GETALL")) {
+            getAllCustomers();
+        } else if (action.equalsIgnoreCase("GETONE")) {
+            getCustomerById();
+        }*/
+
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
             connection = DriverManager.getConnection(url, username, password);
@@ -205,6 +214,7 @@ public class CustomerServlet extends HttpServlet {
                 resp.getWriter().println("Customer Updated Successfully!");
                 System.out.println("Customer Updated Successfully!");
             } else {
+                resp.sendError(HttpServletResponse.SC_BAD_REQUEST, "Customer Not Updated!");
                 resp.getWriter().println("Customer Updated Error!");
                 System.out.println("Customer Updated Error!");
             }
@@ -240,6 +250,7 @@ public class CustomerServlet extends HttpServlet {
                 resp.getWriter().println("Customer Deleted Successfully!");
                 System.out.println("Customer Deleted Successfully!");
             } else {
+                resp.sendError(HttpServletResponse.SC_BAD_REQUEST, "Customer Not Deleted!");
                 resp.getWriter().println("Customer Deleted Error!");
                 System.out.println("Customer Deleted Error!");
             }
@@ -257,4 +268,11 @@ public class CustomerServlet extends HttpServlet {
         }
     }
 
+    private void getAllCustomers() {
+        System.out.println("This is Get All");
+    }
+
+    private void getCustomerById() {
+        System.out.println("This is Get One");
+    }
 }
