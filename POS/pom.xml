@@ -42,12 +42,6 @@
             <version>1.1.5</version>
         </dependency>
 
-        <dependency>
-            <groupId>jakarta.json.bind</groupId>
-            <artifactId>jakarta.json.bind-api</artifactId>
-            <version>3.0.0</version>
-        </dependency>
-
         <!--JSON-B-->
         <dependency>
             <groupId>org.eclipse</groupId>
