@@ -18,7 +18,7 @@ promote best practices in enterprise Java development.
 
 Happy coding!
 
-## 💫 Content
+## Content
 ✅Servlets</br>
 ✅Servlet LifeCycle</br>
 ✅Mapping Specification</br>
