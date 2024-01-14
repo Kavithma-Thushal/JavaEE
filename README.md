@@ -18,6 +18,15 @@ promote best practices in enterprise Java development.
 
 Happy coding!
 
+## 💫 Content
+✅Servlets
+✅Servlet LifeCycle
+✅Mapping Specification
+✅DB Access
+✅JSON - JsonP, JSONB
+✅POS (Servlet Methods)
+✅AJAX
+
 <div align="center">
 
 #### This project is licensed under the [MIT License](LICENSE)
