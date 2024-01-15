@@ -24,6 +24,7 @@
         console.log(xhr.readyState, "creating XMLHttpRequest object");
 
         /*open the request*/
+        //xhr.open("GET", "customer.json", false);
         xhr.open("GET", "customer.json");
         console.log(xhr.readyState, "opening the request");
 
@@ -50,7 +51,7 @@
         $.ajax({
             url: "customer.json",
             method: "GET",
-            /*async: false,*/
+            //async: false,
             success: function (resp) {
                 console.log("Success : ", resp)
                 console.log("id      : ", resp.id);
