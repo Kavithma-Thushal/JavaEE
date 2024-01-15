@@ -1,4 +1,4 @@
-package lk.ijse.gdse66.pos.DTO;
+package lk.ijse.gdse66.pos.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

@@ -1,4 +1,4 @@
-package lk.ijse.gdse66.pos.API;
+package lk.ijse.gdse66.pos.api;
 
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
@@ -55,7 +55,7 @@ public class CustomerServlet extends HttpServlet {
 
         /*Validations*/
         if (id == null || !id.matches("C\\d{3}")) {
-            resp.sendError(HttpServletResponse.SC_BAD_REQUEST, "Customer Not Added!");
+            resp.sendError(HttpServletResponse.SC_BAD_REQUEST, "ID is Invalid!");
             resp.getWriter().println("ID is Invalid!");
             return;
         }
@@ -77,7 +77,7 @@ public class CustomerServlet extends HttpServlet {
                 resp.getWriter().println("Customer Saved Successfully!");
                 System.out.println("Customer Saved Successfully!");
             } else {
-                resp.sendError(HttpServletResponse.SC_BAD_REQUEST, "Customer Not Added!");
+                resp.sendError(HttpServletResponse.SC_BAD_REQUEST, "Customer Saved Error!");
                 resp.getWriter().println("Customer Saved Error!");
                 System.out.println("Customer Saved Error!");
             }
@@ -214,7 +214,7 @@ public class CustomerServlet extends HttpServlet {
                 resp.getWriter().println("Customer Updated Successfully!");
                 System.out.println("Customer Updated Successfully!");
             } else {
-                resp.sendError(HttpServletResponse.SC_BAD_REQUEST, "Customer Not Updated!");
+                resp.sendError(HttpServletResponse.SC_BAD_REQUEST, "Customer Updated Error!");
                 resp.getWriter().println("Customer Updated Error!");
                 System.out.println("Customer Updated Error!");
             }
@@ -250,7 +250,7 @@ public class CustomerServlet extends HttpServlet {
                 resp.getWriter().println("Customer Deleted Successfully!");
                 System.out.println("Customer Deleted Successfully!");
             } else {
-                resp.sendError(HttpServletResponse.SC_BAD_REQUEST, "Customer Not Deleted!");
+                resp.sendError(HttpServletResponse.SC_BAD_REQUEST, "Customer Deleted Error!");
                 resp.getWriter().println("Customer Deleted Error!");
                 System.out.println("Customer Deleted Error!");
             }
