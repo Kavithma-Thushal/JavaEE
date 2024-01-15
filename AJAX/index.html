@@ -24,7 +24,7 @@
         console.log(xhr.readyState, "After creating XMLHttpRequest object");
 
         /*open the request*/
-        xhr.open("get", "customer.json");
+        xhr.open("GET", "customer.json");
         console.log(xhr.readyState, "After opening the request");
 
         /*set the event listener to listen readystatechange*/
@@ -49,7 +49,7 @@
 
         $.ajax({
             url: "customer.json",
-            method: "get",
+            method: "GET",
             /*async: false,*/
             success: function (resp) {
                 console.log("Success : ", resp)
