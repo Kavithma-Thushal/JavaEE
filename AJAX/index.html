@@ -21,11 +21,11 @@
     $('#btn1').click(function () {
         /*create XMLHttpRequest object*/
         let xhr = new XMLHttpRequest();
-        console.log(xhr.readyState, "After creating XMLHttpRequest object");
+        console.log(xhr.readyState, "creating XMLHttpRequest object");
 
         /*open the request*/
         xhr.open("GET", "customer.json");
-        console.log(xhr.readyState, "After opening the request");
+        console.log(xhr.readyState, "opening the request");
 
         /*set the event listener to listen readystatechange*/
         xhr.addEventListener("readystatechange", () => {
@@ -41,7 +41,7 @@
 
         /*send the request*/
         xhr.send();
-        console.log(xhr.readyState, "After sending the request");
+        console.log(xhr.readyState, "sending the request");
     });
 
     $('#btn2').click(function () {
