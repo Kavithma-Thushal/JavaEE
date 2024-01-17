@@ -1,8 +1,6 @@
 package lk.ijse.gdse66.pos.api;
 
-import jakarta.json.Json;
-import jakarta.json.JsonObject;
-import jakarta.json.JsonReader;
+import jakarta.json.*;
 import jakarta.json.bind.Jsonb;
 import jakarta.json.bind.JsonbBuilder;
 import lk.ijse.gdse66.pos.dto.CustomerDTO;
@@ -16,6 +14,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.sql.*;
+import java.util.ArrayList;
 
 /**
  * @author : Kavithma Thushal
@@ -132,9 +131,10 @@ public class CustomerServlet extends HttpServlet {
                 String id = resultSet.getString("id");
                 String name = resultSet.getString("name");
                 String address = resultSet.getString("address");
+                double salary = resultSet.getDouble("salary");
 
-                System.out.println(id + " - " + name + " - " + address);
-                resp.getWriter().println(id + " - " + name + " - " + address);
+                System.out.println(id + " - " + name + " - " + address + " - " + salary);
+                resp.getWriter().println(id + " - " + name + " - " + address + " - " + salary);
             }
 
             /*Using JSON-P*/
@@ -143,11 +143,13 @@ public class CustomerServlet extends HttpServlet {
                 String id = resultSet.getString("id");
                 String name = resultSet.getString("name");
                 String address = resultSet.getString("address");
+                double salary = resultSet.getDouble("salary");
 
                 JsonObjectBuilder objectBuilder = Json.createObjectBuilder();
                 objectBuilder.add("id", id);
                 objectBuilder.add("name", name);
                 objectBuilder.add("address", address);
+                objectBuilder.add("salary", salary);
                 JsonObject customerObject = objectBuilder.build();      // Create JSON objects for each customer
                 arrayBuilder.add(customerObject);                       // Add each Customer Object into JSON array
             }
@@ -165,8 +167,9 @@ public class CustomerServlet extends HttpServlet {
                 String id = resultSet.getString("id");
                 String name = resultSet.getString("name");
                 String address = resultSet.getString("address");
+                double salary = resultSet.getDouble("salary");
 
-                customerList.add(new CustomerDTO(id, name, address));
+                customerList.add(new CustomerDTO(id, name, address, salary));
             }
 
             Jsonb jsonb = JsonbBuilder.create();
@@ -195,30 +198,34 @@ public class CustomerServlet extends HttpServlet {
         String id = req.getParameter("id");
         String name = req.getParameter("name");
         String address = req.getParameter("address");
+        double salary = Double.parseDouble(req.getParameter("salary"));
 
         /*Using JSON-P Object*/
         /*JsonReader reader = Json.createReader(req.getReader());
         JsonObject jsonObject = reader.readObject();
         String id = jsonObject.getString("id");
         String name = jsonObject.getString("name");
-        String address = jsonObject.getString("address");*/
+        String address = jsonObject.getString("address");
+        double salary = Double.parseDouble(jsonObject.getString("salary"));*/
 
         /*Using Json-B Object*/
         /*Jsonb jsonb = JsonbBuilder.create();
         CustomerDTO customerDTO = jsonb.fromJson(req.getReader(), CustomerDTO.class);   // JSON Object ---> Java Object
         String id = customerDTO.getId();
         String name = customerDTO.getName();
-        String address = customerDTO.getAddress();*/
+        String address = customerDTO.getAddress();
+        double salary = customerDTO.getSalary();*/
 
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
             connection = DriverManager.getConnection(url, username, password);
 
-            String sql = "UPDATE customer SET name=?, address=? WHERE id=?";
+            String sql = "UPDATE customer SET name=?, address=?, salary=? WHERE id=?";
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
             preparedStatement.setString(1, name);
             preparedStatement.setString(2, address);
-            preparedStatement.setString(3, id);
+            preparedStatement.setDouble(3, salary);
+            preparedStatement.setString(4, id);
             int rowsEffected = preparedStatement.executeUpdate();
 
             if (rowsEffected != 0) {
