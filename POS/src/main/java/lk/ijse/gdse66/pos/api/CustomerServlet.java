@@ -1,5 +1,12 @@
 package lk.ijse.gdse66.pos.api;
 
+import jakarta.json.Json;
+import jakarta.json.JsonObject;
+import jakarta.json.JsonReader;
+import jakarta.json.bind.Jsonb;
+import jakarta.json.bind.JsonbBuilder;
+import lk.ijse.gdse66.pos.dto.CustomerDTO;
+
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebInitParam;
@@ -15,7 +22,7 @@ import java.sql.*;
  * @project : JavaEE
  * @since : 7:38 AM - 1/6/2024
  **/
-@WebServlet(urlPatterns = "/customers", loadOnStartup = 1, initParams = {@WebInitParam(name = "username", value = "root"), @WebInitParam(name = "password", value = "1234"), @WebInitParam(name = "url", value = "jdbc:mysql://localhost:3306/servlet_db")})
+@WebServlet(urlPatterns = "/customer", loadOnStartup = 1, initParams = {@WebInitParam(name = "username", value = "root"), @WebInitParam(name = "password", value = "1234"), @WebInitParam(name = "url", value = "jdbc:mysql://localhost:3306/javaee_customers")})
 public class CustomerServlet extends HttpServlet {
     private String username;
     private String password;
@@ -38,20 +45,23 @@ public class CustomerServlet extends HttpServlet {
         String id = req.getParameter("id");
         String name = req.getParameter("name");
         String address = req.getParameter("address");
+        double salary = Double.parseDouble(req.getParameter("salary"));
 
         /*Using JSON-P Object*/
         /*JsonReader reader = Json.createReader(req.getReader());
         JsonObject jsonObject = reader.readObject();
         String id = jsonObject.getString("id");
         String name = jsonObject.getString("name");
-        String address = jsonObject.getString("address");*/
+        String address = jsonObject.getString("address");
+        double salary = jsonObject.getString("salary");*/
 
         /*Using Json-B Object*/
         /*Jsonb jsonb = JsonbBuilder.create();
         CustomerDTO customerDTO = jsonb.fromJson(req.getReader(), CustomerDTO.class);   // JSON Object ---> Java Object
         String id = customerDTO.getId();
         String name = customerDTO.getName();
-        String address = customerDTO.getAddress();*/
+        String address = customerDTO.getAddress();
+        double salary = customerDTO.getAddress();*/
 
         /*Validations*/
         if (id == null || !id.matches("C\\d{3}")) {
@@ -64,11 +74,12 @@ public class CustomerServlet extends HttpServlet {
             Class.forName("com.mysql.cj.jdbc.Driver");
             connection = DriverManager.getConnection(url, username, password);
 
-            String sql = "INSERT INTO customer(id, name, address) VALUES (?,?,?)";
+            String sql = "INSERT INTO customer(id, name, address,salary) VALUES (?,?,?,?)";
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
             preparedStatement.setString(1, id);
             preparedStatement.setString(2, name);
             preparedStatement.setString(3, address);
+            preparedStatement.setDouble(4, salary);
             int rowsEffected = preparedStatement.executeUpdate();
 
             if (rowsEffected != 0) {
