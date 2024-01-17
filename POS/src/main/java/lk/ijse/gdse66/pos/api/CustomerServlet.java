@@ -53,7 +53,7 @@ public class CustomerServlet extends HttpServlet {
         String id = jsonObject.getString("id");
         String name = jsonObject.getString("name");
         String address = jsonObject.getString("address");
-        double salary = jsonObject.getString("salary");*/
+        double salary = jsonObject.getJsonNumber("salary").doubleValue();*/
 
         /*Using Json-B Object*/
         /*Jsonb jsonb = JsonbBuilder.create();
@@ -61,7 +61,7 @@ public class CustomerServlet extends HttpServlet {
         String id = customerDTO.getId();
         String name = customerDTO.getName();
         String address = customerDTO.getAddress();
-        double salary = customerDTO.getAddress();*/
+        double salary = customerDTO.getSalary();*/
 
         /*Validations*/
         if (id == null || !id.matches("C\\d{3}")) {
@@ -74,7 +74,7 @@ public class CustomerServlet extends HttpServlet {
             Class.forName("com.mysql.cj.jdbc.Driver");
             connection = DriverManager.getConnection(url, username, password);
 
-            String sql = "INSERT INTO customer(id, name, address,salary) VALUES (?,?,?,?)";
+            String sql = "INSERT INTO customer(id, name, address, salary) VALUES (?,?,?,?)";
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
             preparedStatement.setString(1, id);
             preparedStatement.setString(2, name);
