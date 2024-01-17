@@ -21,7 +21,7 @@ import java.util.ArrayList;
  * @project : JavaEE
  * @since : 7:38 AM - 1/6/2024
  **/
-@WebServlet(value = "/customer", loadOnStartup = 1, initParams = {@WebInitParam(name = "username", value = "root"), @WebInitParam(name = "password", value = "1234"), @WebInitParam(name = "url", value = "jdbc:mysql://localhost:3306/javaee_customers")})
+@WebServlet(urlPatterns = "/customer", loadOnStartup = 1, initParams = {@WebInitParam(name = "username", value = "root"), @WebInitParam(name = "password", value = "1234"), @WebInitParam(name = "url", value = "jdbc:mysql://localhost:3306/javaee_customers")})
 public class CustomerServlet extends HttpServlet {
     private String username;
     private String password;
