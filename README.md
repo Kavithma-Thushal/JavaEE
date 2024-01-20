@@ -19,13 +19,16 @@ promote best practices in enterprise Java development.
 Happy coding!
 
 ## Content
+
 ✅Servlets</br>
 ✅Servlet LifeCycle</br>
 ✅Mapping Specification</br>
 ✅DB Access</br>
 ✅JSON - JsonP, JSONB</br>
-✅POS (Servlet Methods)</br>
+✅POS Intro</br>
 ✅AJAX</br>
+✅Filters</br>
+✅DBCP</br>
 
 <div align="center">
 
