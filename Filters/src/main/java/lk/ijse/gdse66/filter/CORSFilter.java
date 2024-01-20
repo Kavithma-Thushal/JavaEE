@@ -13,7 +13,10 @@ import java.io.IOException;
  * @project : JavaEE
  * @since : 11:57 AM - 1/20/2024
  **/
-@WebFilter(urlPatterns = "/customer")
+/*@WebFilter(urlPatterns = "/customer")*/
+/*@WebFilter(urlPatterns = "/item")*/
+/*@WebFilter(urlPatterns = {"/customer", "/item"})*/
+@WebFilter(urlPatterns = "/*")
 public class CORSFilter extends HttpFilter {
     @Override
     protected void doFilter(HttpServletRequest req, HttpServletResponse res, FilterChain chain) throws IOException, ServletException {
