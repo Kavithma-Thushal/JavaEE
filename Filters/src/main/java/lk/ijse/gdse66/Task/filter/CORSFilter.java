@@ -1,4 +1,4 @@
-package lk.ijse.gdse66.filter;
+package lk.ijse.gdse66.Task.filter;
 
 import javax.servlet.FilterChain;
 import javax.servlet.ServletException;
@@ -13,9 +13,6 @@ import java.io.IOException;
  * @project : JavaEE
  * @since : 11:57 AM - 1/20/2024
  **/
-/*@WebFilter(urlPatterns = "/customer")*/
-/*@WebFilter(urlPatterns = "/item")*/
-/*@WebFilter(urlPatterns = {"/customer", "/item"})*/
 /*@WebFilter(urlPatterns = "/*")*/
 public class CORSFilter extends HttpFilter {
     @Override

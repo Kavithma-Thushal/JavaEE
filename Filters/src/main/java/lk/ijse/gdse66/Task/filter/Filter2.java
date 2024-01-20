@@ -1,4 +1,4 @@
-package lk.ijse.gdse66.filter;
+package lk.ijse.gdse66.Task.filter;
 
 import javax.servlet.FilterChain;
 import javax.servlet.ServletException;
@@ -13,15 +13,12 @@ import java.io.IOException;
  * @project : JavaEE
  * @since : 11:57 AM - 1/20/2024
  **/
-/*@WebFilter(urlPatterns = "/customer")*/
-/*@WebFilter(urlPatterns = "/item")*/
 /*@WebFilter(urlPatterns = {"/customer", "/item"})*/
-/*@WebFilter(urlPatterns = "/*")*/
-public class CORSFilter extends HttpFilter {
+public class Filter2 extends HttpFilter {
     @Override
     protected void doFilter(HttpServletRequest req, HttpServletResponse res, FilterChain chain) throws IOException, ServletException {
-        System.out.println("CORS Filter : Incoming Request");
+        System.out.println("Filter2 : Incoming Request");
         chain.doFilter(req, res);
-        System.out.println("CORS Filter : Outgoing Response");
+        System.out.println("Filter2 : Outgoing Response");
     }
 }
