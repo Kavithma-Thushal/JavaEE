@@ -12,6 +12,7 @@
         <option value="$PROJECT_DIR$/Json/pom.xml" />
         <option value="$PROJECT_DIR$/POS/pom.xml" />
         <option value="$PROJECT_DIR$/Filters/pom.xml" />
+        <option value="$PROJECT_DIR$/DBCP/pom.xml" />
       </list>
     </option>
     <option name="workspaceImportForciblyTurnedOn" value="true" />

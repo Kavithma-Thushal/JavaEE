@@ -5,6 +5,8 @@
     <file url="file://$PROJECT_DIR$/AJAX/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/DBAccess/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/DBAccess/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/DBCP/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/DBCP/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/Filters/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/Filters/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/HelloServlet/src/main/java" charset="UTF-8" />
