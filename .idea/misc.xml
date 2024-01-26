@@ -13,7 +13,14 @@
         <option value="$PROJECT_DIR$/POS/pom.xml" />
         <option value="$PROJECT_DIR$/Filters/pom.xml" />
         <option value="$PROJECT_DIR$/DBCP/pom.xml" />
+        <option value="$PROJECT_DIR$/JNDI/pom.xml" />
+        <option value="$PROJECT_DIR$/Demo/pom.xml" />
       </list>
+    </option>
+    <option name="ignoredFiles">
+      <set>
+        <option value="$PROJECT_DIR$/Demo/pom.xml" />
+      </set>
     </option>
     <option name="workspaceImportForciblyTurnedOn" value="true" />
   </component>

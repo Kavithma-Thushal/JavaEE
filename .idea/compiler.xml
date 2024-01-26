@@ -15,11 +15,13 @@
         <module name="HelloServlet" />
         <module name="Mapping" />
         <module name="Json" />
+        <module name="JNDI" />
         <module name="Servlets" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="AJAX" target="11" />
+      <module name="Demo" target="11" />
     </bytecodeTargetLevel>
   </component>
 </project>

@@ -16,7 +16,7 @@ specific module of interest and follow the instructions provided in its README.
 Feel free to contribute, share your insights, and collaborate with the Jakarta EE community to enhance these modules and
 promote best practices in enterprise Java development.
 
-Happy coding!
+Happy coding.....! 😉
 
 ## Content
 
@@ -25,10 +25,11 @@ Happy coding!
 ✅Mapping Specification</br>
 ✅DB Access</br>
 ✅JSON - JsonP, JSONB</br>
-✅POS Intro</br>
+✅POS (Customer Form Only)</br>
 ✅AJAX</br>
 ✅Filters</br>
 ✅DBCP</br>
+✅JNDI</br>
 
 <div align="center">
 

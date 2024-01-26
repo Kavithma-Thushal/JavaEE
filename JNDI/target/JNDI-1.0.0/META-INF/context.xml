@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Context path="/">
+    <Resource name="jdbc/pos"
+              auth="Container"
+              type="javax.sql.DataSource"
+              driverClassName="com.mysql.cj.jdbc.Driver"
+              url="jdbc:mysql://localhost:3306/servlet_db"
+              username="root"
+              password="1234"
+              maxTotal="5"
+              maxIdle="10"
+              maxWaitMillis="-1"/>
+</Context>
